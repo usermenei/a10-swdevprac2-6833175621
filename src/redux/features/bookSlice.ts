@@ -1,5 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { BookingItem } from "../../../interface";
+
+export interface BookingItem {
+  nameLastname: string;
+  tel: string;
+  venue: string;
+  bookDate: string;
+}
 
 type BookState = {
   bookItems: BookingItem[];
@@ -14,7 +20,6 @@ export const bookSlice = createSlice({
   initialState,
   reducers: {
     addBooking: (state, action: PayloadAction<BookingItem>) => {
-      // Replace existing booking if same venue and date
       const existingIndex = state.bookItems.findIndex(
         (item) =>
           item.venue === action.payload.venue &&

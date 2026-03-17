@@ -6,8 +6,7 @@ import DateReserve from "@/components/DateReserve";
 import { Dayjs } from "dayjs";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/redux/store";
-import { addBooking } from "@/redux/features/bookSlice";
-import { BookingItem } from "../../../interface";
+import { addBooking, BookingItem } from "@/redux/features/bookSlice";
 
 export default function BookingPage() {
   const [reserveDate, setReserveDate] = useState<Dayjs | null>(null);
@@ -70,7 +69,7 @@ export default function BookingPage() {
           </Select>
         </FormControl>
 
-        <DateReserve onDateChange={(value: Dayjs) => setReserveDate(value)} />
+        <DateReserve onDateChange={(value: Dayjs | null) => setReserveDate(value)} />
 
         <Button
           variant="contained"
